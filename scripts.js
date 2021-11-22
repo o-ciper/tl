@@ -200,15 +200,10 @@ function countDown() {
         return;
       });
       if (currTime < 0) {
-        // cancelAnimationFrame(ref);
-        // clearTimeout();
-        // ref = 0;
         currTime = 0;
         target = fsm[fsm[currState].next].time;
         currTime = target;
         fsm[currState].handler();
-        // playAudio();
-        // return;
       }
       updateUI(currTime, currState);
       currTime--;
@@ -221,15 +216,12 @@ startBtn.addEventListener("click", (e) => {
   if (isRunning) {
     countDown();
   } else {
-    // startBtn.style.backgroundColor = "#31791b";
     clearInterval(intervalID);
     if (currTime < 0) {
       currTime = 0;
     } else {
       currTime = Math.round(currTime + ((currTime + 500) / 1000))
     }
-
     updateUI(currTime, currState);
   }
-
 });
