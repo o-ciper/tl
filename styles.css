@@ -1,0 +1,242 @@
+@font-face{
+  font-family:'digital-clock-font';
+  src: url('./fonts/digital-7-mono.ttf');
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 5px;
+}
+
+.lights {
+  width: 23vw;
+  height: 63vw;
+  border: 3px solid black;
+  border-radius: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0;
+  background-color: rgb(59, 59, 59);
+}
+
+.circle {
+  width: 19vw;
+  height: 19vw;
+  color: black;
+  /* border: 1px solid #ccc; */
+  border-radius: 100%;
+}
+
+#red {
+  /* background-color: red; */
+  background-color: rgb(255, 0, 0, .1);
+  /* background-image: radial-gradient(rgb(235, 179, 179), rgb(255, 0, 0)); */
+  /* background-image: radial-gradient(rgb(236, 171, 171), rgb(255, 0, 0)); */
+}
+
+.red-lit {
+  background-image: radial-gradient(rgb(235, 179, 179), rgb(255, 0, 0));
+}
+
+#yellow {
+  background-color: rgb(231, 180, 22, .1);
+  /* background-image: radial-gradient(rgb(231, 180, 22, 1), rgb(250, 103, 6)); */
+  /* background-image: radial-gradient(rgb(230, 205, 133), rgb(250, 152, 6)); */
+}
+
+.yellow-lit {
+  background-image: radial-gradient(rgb(252, 252, 252), rgb(250, 173, 6));
+}
+
+#green {
+  /* background-image: radial-gradient(center, green, limegreen); */
+  background-color: rgb(50, 205, 50, .1);
+  /* background-image: radial-gradient(rgb(153, 255, 158), limegreen); */
+  /* background-image: radial-gradient(circle at top right, #ff8a00, red, #e52e71); */
+  /* background-image: radial-gradient(circle at top right, #eafc4f, green, rgb(13, 206, 13)); */
+}
+
+.green-lit {
+  background-image: radial-gradient(rgb(186, 247, 189), limegreen);
+}
+
+.counter-controller {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.counter {
+  width: 200px;
+  height: 200px;
+  /* border: 1px solid #ccc; */
+  border-radius: 45px;
+  font-size: 9rem;
+  font-family: "digital-clock-font";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(17, 16, 16);
+}
+
+.red-counter {
+  color: red;
+}
+
+.red-yellow-counter {
+  color: rgb(231, 180, 22, 1);
+  /* color: yellow; */
+}
+
+.green-counter {
+  color: lime;
+}
+
+.green-yellow-counter {
+  /* color: yellow; */
+  color: rgb(231, 180, 22, 1);
+}
+
+.yellow-counter {
+  /* color: rgb(231, 180, 22, 1); */
+  color: yellow;
+}
+
+.seconds {
+  margin-top: -40px;
+}
+
+.buttons {
+  position: absolute;
+  bottom: 4%;
+  right: 4%;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  color: var(--color);
+  transition: 0.25s;
+}
+
+button:hover, button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+.pulse {
+  /* --color: #ef6eae;
+  --hover: #ef8f6e; */
+  --color: #394431;
+  --hover: #2a3a2f;
+}
+
+
+
+/* .pulse:hover, 
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(#fff,0);
+} */
+
+.pulse:hover,
+.pulse:focus {
+  -webkit-animation: pulse 1s;
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+  cursor: pointer;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .App {
+    flex-direction: column;
+  }
+
+  .lights {
+    width: 23vh;
+    height: 63vh;
+  }
+  .circle {
+    width: 19vh;
+    height: 19vh;
+  }
+
+  .counter {
+    width: 14vh;
+    height: 14vh;
+    border-radius: 15px;
+    font-size: 7rem;
+    margin-top: 15px;
+    margin-left: 0;
+  }
+  .seconds {
+    margin-top: -28px;
+  }
+  .counter-controller {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 0;
+  }
+  .buttons {
+    position: static;
+    margin-top: 10px;
+  }
+}
