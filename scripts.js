@@ -5,6 +5,8 @@ const redLight = document.querySelector("#red");
 const yellowLight = document.querySelector("#yellow");
 const greenLight = document.querySelector("#green");
 
+const waitTime = 5;
+
 const fsm = {
   START: {
     handler: handleStateStart,
@@ -13,22 +15,22 @@ const fsm = {
   },
   RED: {
     handler: handleStateRed,
-    time: 6,
+    time: waitTime,
     next: "RED_YELLOW",
   },
   RED_YELLOW: {
     handler: handleStateRedYellow,
-    time: 6,
+    time: waitTime,
     next: "GREEN",
   },
   GREEN: {
     handler: handleStateGreen,
-    time: 6,
+    time: waitTime,
     next: "GREEN_YELLOW",
   },
   GREEN_YELLOW: {
     handler: handleStateGreenYellow,
-    time: 6,
+    time: waitTime,
     next: "RED",
   }
 }
