@@ -1,58 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="App">
-        <div class="lights">
-          <div
-            class="circle"}
-            id="red">
-          </div>
-          <div
-            class="circle"
-            id="yellow">
-          </div>
-          <div
-            class="circle"
-            id="green">
-          </div>
-        </div>
-        <div class="counter-controller">
-          <div class="counter">
-            <span
-              class="seconds"
-            >
-              
-            </span>
-          </div>
-          <div class="buttons">
-            <!-- <button
+
+  <div class="navigation-buttons">
+    <a class="nav-btn simulation-btn" href="#simulation">
+      Simula
+    </a>
+    <a class="nav-btn manuel-btn" href="#manuel">
+      Manuel
+    </a>
+    <a class="nav-btn song-btn" href="#song">
+      Song
+    </a>
+  </div>
+  <div class="App" id="simulation">
+    <div class="lights">
+      <div class="circle" id="red">
+      </div>
+      <div class="circle" id="yellow">
+      </div>
+      <div class="circle" id="green">
+      </div>
+    </div>
+    <div class="counter-controller">
+      <div class="counter">
+        <span class="seconds">
+
+        </span>
+      </div>
+      <div class="buttons">
+        <!-- <button
               class="start-button pulse"
               onClick={handleIsRunning}
             > -->
-            <button
-              class="start-button pulse"
-            >
-              Start
-            </button>
-            <!-- <button
+        <button class="start-button pulse">
+          Start
+        </button>
+        <!-- <button
               class="reset-button pulse"
               onClick={handleReset}
             > -->
-            <button
-              class="reset-button pulse"
-            >
-                Reset
-              </button>
-          </div>
-        </div>
+        <button class="reset-button pulse">
+          Reset
+        </button>
       </div>
-<script src="./scripts.js"></script>
+    </div>
+  </div>
+
+  <div class="App" id="manuel">
+    <div class="lights lights2">
+      <div class="circle red2" id="red2">
+      </div>
+      <div class="circle yellow2" id="yellow2">
+      </div>
+      <div class="circle green2" id="green2">
+      </div>
+    </div>
+    <div class="manuel-buttons">
+      <button class="btn pulse red-btn">Red</button>
+      <button class="btn pulse yellow-btn">Yellow</button>
+      <button class="btn pulse green-btn">Green</button>
+    </div>
+    <button class="btn pulse reset-btn">Reset</button>
+  </div>
+
+  <div id="song">
+    <audio controls class="audio-player">
+      <source src="bipbip.mp3" type="audio/mpeg">
+      Your browser does not support the audio tag.
+    </audio>
+    <embed
+      class="pdf"
+      src="./bipbip2.pdf"
+      type="application/pdf"
+      frameBorder="0"
+      scrolling="auto"
+      
+    ></embed>
+    <!-- <iframe
+      src="./bipbip.pdf"
+      frameBorder="0"
+      scrolling="auto"
+      height="100%"
+      width="100%"
+    ></iframe> -->
+  </div>
+
+  <script src="./scripts.js"></script>
+
 </body>
+
 </html>

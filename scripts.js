@@ -5,6 +5,14 @@ const redLight = document.querySelector("#red");
 const yellowLight = document.querySelector("#yellow");
 const greenLight = document.querySelector("#green");
 
+const btnRed = document.querySelector(".red-btn");
+const btnYellow = document.querySelector(".yellow-btn");
+const btnGreen = document.querySelector(".green-btn");
+const btnReset = document.querySelector(".reset-btn");
+const redLight2 = document.querySelector("#red2");
+const yellowLight2 = document.querySelector("#yellow2");
+const greenLight2 = document.querySelector("#green2");
+
 const waitTime = 5;
 
 const fsm = {
@@ -35,7 +43,36 @@ const fsm = {
   }
 }
 
+const fsm2 = {
+  START: {
+    handler: handleStateStart,
+    time: 0,
+    next: "RED"
+  },
+  RED: {
+    handler: handleStateRed,
+    time: waitTime,
+    next: "RED_YELLOW",
+  },
+  RED_YELLOW: {
+    handler: handleStateRedYellow,
+    time: waitTime,
+    next: "GREEN",
+  },
+  GREEN: {
+    handler: handleStateGreen,
+    time: waitTime,
+    next: "GREEN_YELLOW",
+  },
+  GREEN_YELLOW: {
+    handler: handleStateGreenYellow,
+    time: waitTime,
+    next: "RED",
+  }
+}
+
 let currState = "START";
+let currState2 = "START";
 let isRunning = false;
 let currTime = 0;
 let secondsText = "";
@@ -116,6 +153,38 @@ function handleColorType(currState) {
   }
 }
 
+function handleColorType2(currState) {
+  switch (currState) {
+    case "START":
+      redLight2.classList.remove("red-lit");
+      yellowLight2.classList.remove("yellow-lit");
+      greenLight2.classList.remove("green-lit");
+      break;
+    case "RED":
+      redLight2.classList.add("red-lit");
+      yellowLight2.classList.remove("yellow-lit");
+      greenLight2.classList.remove("green-lit");
+      break;
+    case "RED_YELLOW":
+      redLight2.classList.remove("red-lit");
+      yellowLight2.classList.add("yellow-lit");
+      greenLight2.classList.remove("green-lit");
+      break;
+    case "GREEN":
+      redLight2.classList.remove("red-lit");
+      yellowLight2.classList.remove("yellow-lit");
+      greenLight2.classList.add("green-lit");
+      break;
+    case "GREEN_YELLOW":
+      redLight2.classList.remove("red-lit");
+      yellowLight2.classList.add("yellow-lit");
+      greenLight2.classList.remove("green-lit");
+      break;
+    default:
+      break;
+  }
+}
+
 function updateUI(currTime, currState) {
   secondsSpan.textContent = currTime;
   if (isRunning) {
@@ -136,6 +205,11 @@ function updateUI(currTime, currState) {
   //   // startBtn.classList.remove("start-active");
   //   // startBtn.style.transform = "scale(1)";
   // }
+}
+
+function updateUI2(currState2) {
+  console.log("click")
+  handleColorType2(currState2);
 }
 
 // function countDown() {
@@ -226,4 +300,24 @@ startBtn.addEventListener("click", (e) => {
     }
     updateUI(currTime, currState);
   }
+});
+
+btnRed.addEventListener("click", () => {
+  currState2 = "RED";
+  updateUI2(currState2);
+});
+
+btnYellow.addEventListener("click", () => {
+  currState2 = "RED_YELLOW";
+  updateUI2(currState2);
+});
+
+btnGreen.addEventListener("click", () => {
+  currState2 = "GREEN";
+  updateUI2(currState2);
+});
+
+btnReset.addEventListener("click", () => {
+  currState2 = "START";
+  updateUI2(currState2);
 });
