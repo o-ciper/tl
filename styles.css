@@ -334,9 +334,23 @@ button {
 .pdf {
   margin-left: 8vw;
   margin-top: 20px;
-  width: 80vw;
+  width: 75vw;
   height: 600px;
   border: none;
+}
+
+.lyrics {
+  color: white;
+  width: 70vw;
+}
+
+.header {
+  font-size: 1.6rem;
+}
+
+.img-notes {
+  width: 40vw;
+  margin-left: 20%;
 }
 
 .audio-player {
